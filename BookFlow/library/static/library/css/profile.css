@@ -1,0 +1,192 @@
+.profile-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 30px;
+}
+
+.profile-title {
+    color: #4CAF50;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.user-card {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    margin-bottom: 30px;
+}
+
+.user-avatar {
+    margin-right: 30px;
+}
+
+.user-avatar i {
+    font-size: 80px;
+    color: #4CAF50;
+}
+
+.user-details h2 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.user-details p {
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.section-title {
+    color: #4CAF50;
+    font-size: 1.6em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.rentals-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.rental-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.rental-item:hover {
+    background-color: #eeeeee;
+}
+
+.rental-book {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.book-cover-small {
+    width: 50px;
+    height: 70px;
+    background-color: #4CAF50;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    border-radius: 4px;
+}
+
+.book-cover-small i {
+    font-size: 24px;
+}
+
+.book-info h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.book-author {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.rental-details {
+    flex: 1;
+    text-align: center;
+}
+
+.rental-details p {
+    margin-bottom: 5px;
+    font-size: 0.95em;
+}
+
+.status-active {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.status-overdue {
+    color: #f44336;
+    font-weight: bold;
+}
+
+.status-returned {
+    color: #2196F3;
+    font-weight: bold;
+}
+
+.rental-actions {
+    margin-left: 20px;
+}
+
+.btn-extend {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-extend:hover {
+    background-color: #3e8e41;
+}
+
+.no-rentals {
+    padding: 30px;
+    text-align: center;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .user-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .user-avatar {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .rental-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .rental-book, .rental-details {
+        width: 100%;
+    }
+
+    .rental-actions {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .btn-extend {
+        width: 100%;
+    }
+}

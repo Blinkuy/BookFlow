@@ -1,0 +1,42 @@
+{% extends 'library/base.html' %}
+{% load static%}
+
+{% block style %}
+<link href="{% static 'library/css/bookstyle.css'%}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+<div class="book-page-container">
+    <div class="book-header">
+        <img alt="Обложка книги" class="book-cover-image" src="{{ book.cover.url }}">
+        <div class="book-header-info">
+            <h1 class="book-title">{{ book.title }}</h1>
+            <div class="book-author">Автор: {{ book.author }}</div>
+            <div class="book-meta">Год издания: {{ book.publication_year }}</div>
+            <a class="reserve-button" href=" {% url 'reservation' book.id %}">Забронировать книгу</a>
+        </div>
+    </div>
+
+    <div class="book-full-description">
+        <h2>Описание</h2>
+        <p>{{ book.describe}}</p>
+    </div>
+
+    <!-- Список статей -->
+    <div class="book-articles">
+        <h2 style="color: #4CAF50;">Статьи в этой книге</h2>
+
+        <div class="articles-list">
+            <div class="article">
+                <div class="article-content-wrapper">
+                    <div class="article-title">Статей пока нет</div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</div>
+
+{% endblock  %}

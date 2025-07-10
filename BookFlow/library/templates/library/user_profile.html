@@ -1,0 +1,67 @@
+{% extends "library/base.html" %}
+{% load static %}
+
+{% block style %}
+    <link type="text/css" href="{% static 'library/css/profile.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-header">
+        <h1 class="profile-title">Личный кабинет</h1>
+    </div>
+
+    <div class="profile-info">
+        <div class="user-card">
+            <div class="user-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-details">
+                <h2>{{ user.last_name }} {{ user.first_name }} {{ user.middle_name }}</h2>
+                <p><strong>Логин:</strong> {{ user.username }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Телефон:</strong> {{ user.phone }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="rentals-section">
+        <h2 class="section-title">Мои аренды</h2>
+        
+        {% if rentals.filter %}
+            <div class="rentals-list">
+                {% for rental in rentals %}
+                <div class="rental-item">
+                    <div class="rental-book">
+                        <div class="book-cover-small">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="book-info">
+                            <h3>{{ rental.book.title }}</h3>
+                            <p class="book-author">{{ rental.book.author }}</p>
+                        </div>
+                    </div>
+                    <div class="rental-details">
+                        <p><strong>Дата аренды:</strong> {{ rental.reservation_date|date:"d.m.Y" }}</p>
+                        <p><strong>Срок возврата:</strong> {{ rental.expiration_date|date:"d.m.Y" }}</p>
+                        <p><strong>Код получения:</strong>5hBxd6LD0</p>
+                        <p><strong>Статус:</strong> 
+                            <span class="status-{{ rental.status|lower }}">{{ rental.get_status_display }}</span>
+                        </p>
+                    </div>
+                    <div class="rental-actions">
+                        {% if rental.status == 'active' %}
+                            <button class="btn-extend">Продлить</button>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="no-rentals">
+                <p>У вас нет активных аренд.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

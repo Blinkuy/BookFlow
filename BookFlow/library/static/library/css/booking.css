@@ -1,0 +1,109 @@
+.booking-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.booking-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.booking-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.booking-header h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.book-title {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.book-author {
+    font-size: 1.1em;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.booking-form {
+    padding: 30px;
+    background-color: #f9f9f9;
+}
+
+.confirmation-text {
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.btn-confirm {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    min-width: 200px;
+}
+
+.btn-confirm:hover {
+    background-color: #3e8e41;
+}
+
+.btn-cancel {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    text-align: center;
+    min-width: 200px;
+}
+
+.btn-cancel:hover {
+    background-color: #d32f2f;
+}
+
+@media (max-width: 600px) {
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-confirm, .btn-cancel {
+        width: 100%;
+    }
+
+    .booking-header {
+        padding: 20px;
+    }
+
+    .booking-form {
+        padding: 20px;
+    }
+}

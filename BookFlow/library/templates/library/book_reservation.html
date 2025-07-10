@@ -1,0 +1,30 @@
+{% extends 'library/base.html' %}
+{% load static %}
+
+{% block style %}
+<link href="{% static 'library/css/booking.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+<div class="booking-container">
+    <div class="booking-card">
+        <div class="booking-header">
+            <h2>Бронирование книги</h2>
+            <div class="book-title">"{{ book.title }}"</div>
+            {% if book.author %}
+            <div class="book-author">{{ book.author }}</div>
+            {% endif %}
+        </div>
+
+        <form class="booking-form" method="post">
+            {% csrf_token %}
+            <p class="confirmation-text">Вы уверены, что хотите забронировать эту книгу?</p>
+
+            <div class="form-actions">
+                <button class="btn-confirm" type="submit">Подтвердить бронирование</button>
+                <a class="btn-cancel" href="{% url 'book_page' book.id %}">Отмена</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

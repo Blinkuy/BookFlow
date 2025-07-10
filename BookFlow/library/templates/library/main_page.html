@@ -1,0 +1,47 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+
+<div class="articles-list">
+    {% for book in books %}
+    <div class="article">
+        {% if book.cover %}
+        <img alt="Иллюстрация к статье" class="article-image" src="{{ book.cover.url }}">
+        {% endif %}
+
+        <div class="article-content-wrapper">
+            <div class="article-title">{{ book.title }}</div>
+            <div class="article-meta">Автор: {{ book.author}} | Год выхода: {{ book.publication_year }}</div>
+            <div class="article-content">
+                <p> {{ book.describe }}</p>
+                <a class="article-link" href="{% url 'book_page' book.pk %}">Подробнее →</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="pagination">
+    {% if page_obj.has_previous %}
+    <a class="pagination__arrow" href="?page={{page_obj.previous_page_number}}">&laquo;</a>
+    {% else %}
+    <a class="pagination__arrow" href="?page={{page_obj.number}}">&laquo;</a>
+    {% endif %}
+    {% for page in paginator.page_range %}
+        {% if page == page_obj.number %}
+        <a class="active" href="?page={{ page }}">{{ page }}</a>
+        {% else %}
+        <a href="?page={{ page }}">{{ page }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+    <a class="pagination__arrow" href="?page={{page_obj.next_page_number}}">&raquo;</a>
+    {% else %}
+    <a class="pagination__arrow" href="?page={{page_obj.number}}">&raquo;</a>
+    {% endif %}
+
+</div>
+
+
+{% endblock  %}
