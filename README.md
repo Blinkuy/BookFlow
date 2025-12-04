@@ -48,7 +48,7 @@ cd BookFlow
 pip install -r requirements.txt
 ```
 
-### 3. Apply migrations (if project uses Django migrations) and run server
+### 3. Apply migrations and run server
 
 ```bash
 python manage.py migrate
